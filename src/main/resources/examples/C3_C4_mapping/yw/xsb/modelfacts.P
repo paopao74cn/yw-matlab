@@ -265,3 +265,7 @@ uri_variable(9, 'month', 12).
 uri_variable(10, 'start_year', 14).
 uri_variable(11, 'end_year', 14).
 uri_variable(12, 'month', 14).
+
+% FACT: log_template(log_template_id, port_id, entry_template, log_annotation_id).
+
+% FACT: log_template_variable(log_variable_id, variable_name, log_template_id).

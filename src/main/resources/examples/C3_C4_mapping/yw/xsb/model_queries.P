@@ -158,3 +158,63 @@ mq20(VariableName) :-
     uri_variable(V1, VariableName, _),
     uri_variable(V2, VariableName, _).
 
+% Q2-pro(spective) "List the script inputs that are upstream of a given data product D" <==> UpstreamData(rules.P) joins Inputs(MQ5)
+% Q21: List the script inputs that are upstream of a given data product Grass_fraction_data?
+:- table q21/1.
+q21(UpstreamInputDataName):-
+    data(D1, UpstreamInputDataName, _),
+    data(D2, 'Grass_fraction_data', _),
+    data_upstream(D1, D2),
+    mq5(UpstreamInputDataName).
+
+% Q22: List the script inputs that are upstream of a given data product C3_fraction_data?
+:- table q22/1.
+q22(UpstreamInputDataName):-
+    data(D1, UpstreamInputDataName, _),
+    data(D2, 'C3_fraction_data', _),
+    data_upstream(D1, D2),
+    top_workflow(W),
+    has_in_port(W, P),
+    port(P, _, UpstreamInputDataName, _, _, _).
+
+% Q23: List the script inputs that are upstream of a given data product C4_fraction_data?
+:- table q23/1.
+q23(UpstreamInputDataName):-
+    data(D1, UpstreamInputDataName, _),
+    data(D2, 'C4_fraction_data', _),
+    data_upstream(D1, D2),
+    mq5(UpstreamInputDataName).
+
+
+% Q4-pro(spective) "List the script outputs that are downstream of a given data product D" <==> DownstreamData(rules.P) joins Outputs(q40)
+% Q40:  What are the outputs to the script?
+:- table q40/1.
+q40(OutputPortName) :-
+    top_workflow(W),
+    has_out_port(W, P),
+    port(P, _, OutputPortName, _, _, _).
+
+% Q41: List the script outputs that are downstream of a given data input SYNMAP_land_cover_map_data?
+:- table q41/1.
+q41(DownstreamOutputDataName):-
+    data(D1, DownstreamOutputDataName, _),
+    data(D2, 'SYNMAP_land_cover_map_data', _),
+    data_downstream(D1, D2),
+    q40(DownstreamOutputDataName).
+
+% Q42: List the script outputs that are downstream of a given data input mean_airtemp?
+:- table q42/1.
+q42(DownstreamOutputDataName):-
+    data(D1, DownstreamOutputDataName, _),
+    data(D2, 'mean_airtemp', _),
+    data_downstream(D1, D2),
+    q40(DownstreamOutputDataName).
+
+% Q43: List the script outputs that are downstream of a given data input mean_precip?
+:- table q43/1.
+q43(DownstreamOutputDataName):-
+    data(D1, DownstreamOutputDataName, _),
+    data(D2, 'mean_precip', _),
+    data_downstream(D1, D2),
+    q40(DownstreamOutputDataName).
+

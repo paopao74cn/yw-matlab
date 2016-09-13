@@ -1,6 +1,6 @@
 #!/usr/bin/env bash -l
 #
-# ./run_queries.sh &> run_queries.txt
+./run_queries.sh &> run_queries.txt
 
 xsb << END_XSB_STDIN
 
@@ -36,6 +36,13 @@ printall('mq17(DownstreamDataName) - What data is downstream of Rain_Matrix?', m
 printall('mq18(UpstreamDataName) - What data is upstream of SYNMAP_land_cover_map_variable?', mq18(_)).
 printall('mq19(UriVariableName) - What URI variables are associated with reads of data mean_airtemp?', mq19(_)).
 printall('mq20(UpStreamDataName) - What URI variables do data read into mean_precip and mean_airtemp have in common?', mq20(_)).
+printall('q21(UpStreamInputDataName) - List the script inputs that are upstream of a given data product Grass_fraction_data?', q21(_)).
+printall('q22(UpStreamInputDataName) - List the script inputs that are upstream of a given data product C3_fraction_data?', q22(_)).
+printall('q23(UpStreamInputDataName) - List the script inputs that are upstream of a given data product C4_fraction_data?', q23(_)).
+printall('q40(OutputPortName) - What are the outputs to the script?', q40(_)).
+printall('q41(DownStreamInputDataName) - List the script outputs that are downstream of a given data input SYNMAP_land_cover_map_data?', q41(_)).
+printall('q42(DownStreamInputDataName) - List the script outputs that are downstream of a given data input mean_airtemp?', q42(_)).
+printall('q43(DownStreamInputDataName) - List the script outputs that are downstream of a given data input mean_precip?', q43(_)).
 
 printall('rq1(InputFile) - What input files were used to compose the rain matrix?', rq1(_)).
 printall('rq2(InputCount) - How many input files were used to compose the air temperature matrix?', rq2(_)).

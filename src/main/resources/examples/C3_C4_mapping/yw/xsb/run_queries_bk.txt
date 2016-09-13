@@ -1,10 +1,10 @@
-[xsb_configuration loaded, cpu time used: 0.0010 seconds]
+[xsb_configuration loaded]
 [sysinitrc loaded]
 [xsbbrat loaded]
 
-XSB Version 3.6. (Gazpatcho) of April 28, 2015
-[i386-apple-darwin15.6.0 64 bits; mode: optimal; engine: slg-wam; scheduling: local]
-[Build date: 2016-09-12]
+XSB Version 3.6. (Gazpatcho) of April 22, 2015
+[i386-apple-darwin15.0.0 64 bits; mode: optimal; engine: slg-wam; scheduling: local]
+[Build date: 2015-11-16]
 
 | ?- [rules loaded]
 
@@ -38,15 +38,15 @@ yes
 ---------------------------------------------------------------------------------------------------------------------------
 eq2(ProgramName) - What are the names of all program blocks in the script?
 ---------------------------------------------------------------------------------------------------------------------------
-eq2(examine_pixels_for_grass)
-eq2(generate_netcdf_file_for_C4_fraction)
 eq2(fetch_SYNMAP_land_cover_map_variable)
 eq2(generate_netcdf_file_for_Grass_fraction)
 eq2(fetch_monthly_mean_air_temperature_data)
 eq2(initialize_Grass_Matrix)
-eq2(C3_C4_map_present_NA)
 eq2(generate_netcdf_file_for_C3_fraction)
 eq2(fetch_monthly_mean_precipitation_data)
+eq2(C3_C4_map_present_NA)
+eq2(examine_pixels_for_grass)
+eq2(generate_netcdf_file_for_C4_fraction)
 
 yes
 | ?- 
@@ -233,68 +233,8 @@ mq20(month)
 yes
 | ?- 
 ---------------------------------------------------------------------------------------------------------------------------
-q21(UpStreamInputDataName) - List the script inputs that are upstream of a given data product Grass_fraction_data?
----------------------------------------------------------------------------------------------------------------------------
-q21(SYNMAP_land_cover_map_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
-q22(UpStreamInputDataName) - List the script inputs that are upstream of a given data product C3_fraction_data?
----------------------------------------------------------------------------------------------------------------------------
-q22(mean_precip)
-q22(mean_airtemp)
-q22(SYNMAP_land_cover_map_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
-q23(UpStreamInputDataName) - List the script inputs that are upstream of a given data product C4_fraction_data?
----------------------------------------------------------------------------------------------------------------------------
-q23(mean_precip)
-q23(mean_airtemp)
-q23(SYNMAP_land_cover_map_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
-q40(OutputPortName) - What are the outputs to the script?
----------------------------------------------------------------------------------------------------------------------------
-q40(Grass_fraction_data)
-q40(C4_fraction_data)
-q40(C3_fraction_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
-q41(DownStreamInputDataName) - List the script outputs that are downstream of a given data input SYNMAP_land_cover_map_data?
----------------------------------------------------------------------------------------------------------------------------
-q41(Grass_fraction_data)
-q41(C4_fraction_data)
-q41(C3_fraction_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
-q42(DownStreamInputDataName) - List the script outputs that are downstream of a given data input mean_airtemp?
----------------------------------------------------------------------------------------------------------------------------
-q42(C4_fraction_data)
-q42(C3_fraction_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
-q43(DownStreamInputDataName) - List the script outputs that are downstream of a given data input mean_precip?
----------------------------------------------------------------------------------------------------------------------------
-q43(C4_fraction_data)
-q43(C3_fraction_data)
-
-yes
-| ?- 
----------------------------------------------------------------------------------------------------------------------------
 rq1(InputFile) - What input files were used to compose the rain matrix?
 ---------------------------------------------------------------------------------------------------------------------------
-rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc)
 rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc)
 rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc)
 rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc)
@@ -306,6 +246,7 @@ rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc)
 rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc)
 rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc)
 rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc)
+rq1(inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc)
 
 yes
 | ?- 
@@ -333,21 +274,19 @@ yes
 ---------------------------------------------------------------------------------------------------------------------------
 rq5(Month) - What months of the year do the mean_airtemp input files correspond to?
 ---------------------------------------------------------------------------------------------------------------------------
-rq5(7)
-rq5(1)
-rq5(6)
 rq5(8)
-rq5(2)
 rq5(9)
 rq5(10)
-rq5(11)
 rq5(5)
-rq5(12)
+rq5(11)
 rq5(3)
 rq5(4)
+rq5(2)
+rq5(12)
+rq5(6)
+rq5(1)
+rq5(7)
 
 yes
 | ?- 
 End XSB (cputime 0.02 secs, elapsetime 0.02 secs)
-02 secs, elapsetime 0.03 secs)
-02 secs, elapsetime 0.02 secs)

@@ -83,8 +83,6 @@ annotation(77, 1, 297, 'uri', '@URI', 'file:outputs/SYNMAP_PRESENTVEG_Grass_Frac
 annotation(78, 1, 347, 'end', '@END', 'generate_netcdf_file_for_Grass_fraction').
 annotation(79, 1, 349, 'end', '@END', 'C3_C4_map_present_NA').
 
-% FACT: annotation_description(annotation_id, description).
-
 % FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
 annotation_qualifies(3, 2).
 annotation_qualifies(5, 4).
